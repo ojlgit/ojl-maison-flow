@@ -1,0 +1,206 @@
+:root {
+  color: #f5efe5;
+  background: #080706;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 320px;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #050505;
+}
+
+button {
+  font: inherit;
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-shell {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100svh;
+  overflow: hidden;
+  touch-action: none;
+  user-select: none;
+  background: #050505;
+}
+
+.webgl-mount {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sound-toggle {
+  position: fixed;
+  z-index: 20;
+  top: 1.25rem;
+  right: 1.25rem;
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  border: 1px solid rgba(232, 212, 170, 0.34);
+  border-radius: 999px;
+  color: #f8ecd8;
+  background: rgba(8, 7, 6, 0.42);
+  box-shadow: 0 0.8rem 2.4rem rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(14px);
+  cursor: pointer;
+}
+
+.sound-toggle:focus-visible {
+  outline: 2px solid #e1bc73;
+  outline-offset: 3px;
+}
+
+.sound-toggle svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  stroke-width: 1.8;
+}
+
+.progress-rail {
+  position: fixed;
+  z-index: 18;
+  top: 50%;
+  right: 1.55rem;
+  display: grid;
+  gap: 0.62rem;
+  transform: translateY(-50%);
+}
+
+.progress-dot {
+  width: 0.28rem;
+  height: 0.28rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(248, 236, 216, 0.38);
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.progress-dot.is-active {
+  background: #e8c575;
+  transform: scale(1.9);
+}
+
+.webgl-mount canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.scene-vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(0, 0, 0, 0.26), transparent 30%, transparent 78%, rgba(0, 0, 0, 0.28)),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.18), transparent 26%, transparent 72%, rgba(0, 0, 0, 0.4)),
+    radial-gradient(circle at 50% 43%, transparent 0, transparent 45%, rgba(0, 0, 0, 0.18) 100%);
+}
+
+.brand-mark {
+  position: absolute;
+  z-index: 2;
+  top: clamp(1.4rem, 4vw, 3rem);
+  left: clamp(1.4rem, 4vw, 3rem);
+  color: rgba(255, 255, 255, 0.68);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(0.95rem, 2vw, 1.55rem);
+  font-style: italic;
+  letter-spacing: 0;
+}
+
+.scene-caption {
+  position: absolute;
+  z-index: 2;
+  left: clamp(1.4rem, 4vw, 3rem);
+  bottom: clamp(1.4rem, 4vh, 2.8rem);
+  width: min(26rem, calc(100vw - 6rem));
+  padding: 0;
+  text-align: left;
+  text-shadow: 0 0.3rem 1.4rem rgba(0, 0, 0, 0.42);
+  transition: opacity 320ms ease;
+}
+
+.scene-kicker {
+  margin: 0 0 0.65rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.scene-caption h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 3vw, 2.75rem);
+  font-weight: 400;
+  line-height: 0.96;
+  letter-spacing: 0;
+}
+
+.scene-caption p {
+  max-width: 24rem;
+  margin: 0.6rem 0 0;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: clamp(0.88rem, 1.15vw, 1.05rem);
+  line-height: 1.55;
+}
+
+.section-index {
+  position: absolute;
+  right: clamp(1.2rem, 4vw, 4rem);
+  bottom: clamp(1.35rem, 4vh, 3rem);
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.18);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.5rem, 8vw, 8rem);
+  line-height: 0.8;
+}
+
+@media (max-width: 720px) {
+  .progress-rail {
+    right: 0.72rem;
+  }
+
+  .scene-caption {
+    left: 1.2rem;
+    bottom: 1.1rem;
+    width: min(22rem, calc(100vw - 4.4rem));
+  }
+
+  .scene-caption p {
+    max-width: 24rem;
+  }
+
+  .section-index {
+    right: 1rem;
+    bottom: 1.25rem;
+  }
+}
